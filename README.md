@@ -869,8 +869,8 @@ the details are descriped in :
 Also in the SIF part we discussed how to select interesting keypoints and we reject low contrast regions and regions with large curvature ratio this technique is actually borrowed from harris 
 
 <p align="center">
-  <img src="../cv3-sift/images/readme_imgs/harris.png" width="300" height="300"/>
-  <img src="../cv3-sift/images/readme_imgs/r_ratio.png" width="500" height="300"/>
+  <img src="images/readme_imgs/harris.png" width="300" height="300"/>
+  <img src="images/readme_imgs/r_ratio.png" width="500" height="300"/>
 </p>
 
 for the math behind the harris check section 3.2 above.
