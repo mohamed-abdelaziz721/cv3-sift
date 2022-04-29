@@ -1,4 +1,8 @@
+# CV TASK 3 - Harris Corner - SIFT 
+
 # Scale Invariant Feature Transformation (SIFT)
+
+> **NOTE :: Run the SIFT notebook inside `code` folder to function as expected.**
 
 | For short| Paper|
 |-----------|-----------|
@@ -851,9 +855,25 @@ match_lib.visualize_matches(matches, img1, img2)
 
 
 
-```python
+# Harris Corner Detection 
 
-```
+The Harris corner detector is a corner detection operator that is commonly used in computer vision algorithms to extract corners and infer features of an image.
+
+A corner is a point whose local neighborhood stands in two dominant and different edge directions. In other words, a corner can be interpreted as the junction of two edges, where an edge is a sudden change in image brightness.
+
+Corners are the important features in the image, and they are generally termed as interest points which are invariant to translation, rotation and illumination. Although corners are only a small percentage of the image, they contain the most important features in restoring image information, and they can be used to minimize the amount of processed data for motion tracking, image stitching, building 2D mosaics, stereo vision, image representation and other related computer vision areas.
+
+the details are descriped in :
+`https://www.ece.lsu.edu/gunturk/EE7700/A_Combined_Corner_and_Edge_Detector.pdf`
+
+Also in the SIF part we discussed how to select interesting keypoints and we reject low contrast regions and regions with large curvature ratio this technique is actually borrowed from harris 
+
+<p align="center">
+  <img src="../cv3-sift/images/readme_imgs/harris.png" width="300" height="300"/>
+  <img src="../cv3-sift/images/readme_imgs/r_ratio.png" width="500" height="300"/>
+</p>
+
+for the math behind the harris check section 3.2 above.
 
 
 ## File structure 
