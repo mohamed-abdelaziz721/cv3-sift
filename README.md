@@ -33,7 +33,7 @@ This Gaussian scale-space  is a family of increasingly blurred images with sampl
 
 Convention adopted for the sampling grid of the digital scale-space v. The blur level is
 considered with respect to the sampling grid of the input image. The parameters are set to their default
-value, namely $$\sigma_{min} = 0.8, n_{spo} = 5, n_{oct} = 8, \sigma_{in} = 0.5.$$
+value, namely $\sigma_{min} = 0.8, n_{spo} = 5, n_{oct} = 8, \sigma_{in} = 0.5.$
 
 
 ```python
@@ -109,7 +109,7 @@ plt.show()
 
 ### 1.2. Diffrence of Gaussian (DOG)
 - `Diffrence of Gaussian`: Effiecient to compute edge features by simple image subtraction `(two subsequent imgs at diffrent sigma from the same octave)` which is a fast approximation to Normalized Laplacian of gaussian (NLOG) which require slow convolution computations.
-$$ G(x, y, k\sigma) − G(x, y, \sigma) \approx (k − 1)\sigma^2\nabla^2G$$
+$ G(x, y, k\sigma) − G(x, y, \sigma) \approx (k − 1)\sigma^2\nabla^2G$
 
 
 <p align="center">
@@ -190,14 +190,16 @@ plt.show()
 ### 2.1 Accurate Keypoint Localization
 The extremum location found in D(sigma, y, x) is not greatly localized as we are only considering a subset of scales. To precicely localize where a keypoint is present we will use quadratic model fit as follows: 
 
-$$ D(X)= D + \frac{\partial D^T}{\partial X} X + \frac{1}{2} X^T \frac{\partial^2 D}{\partial X^2} X$$
-$$ \hat{X} =  -\frac{\partial^2 D^-{1}}{\partial X^2} \frac{\partial D}{\partial X} $$ 
+$D(X)= D + \frac{\partial D^T}{\partial X} X + \frac{1}{2} X^T \frac{\partial^2 D}{\partial X^2} X$
+
+$\hat{X} =  -\frac{\partial^2 D^-{1}}{\partial X^2} \frac{\partial D}{\partial X}$ 
 - X : is vector of x, y, sigma.
 - D : is Diffrence of Gaussian. 
-- $ \hat{x} : \textrm{keypoint offset} $
+- $\hat{x} : \textrm{keypoint offset}$
 ### 2.2 Contrast Threshold
 The function value at the extremum, $D(\hat{x})$, is useful for rejecting unstable extrema with low contrast. This can be obtained by substituting in:
-$$ D(\hat{X} = D + \frac{1}{2} \frac{\partial D^T}{\partial X} \hat{X} )$$ 
+
+$D(\hat{X}) = D + \frac{1}{2} \frac{\partial D^T}{\partial X} \hat{X}$ 
 
 all extrema with a value of $|D(\hat{X})|$ less than 0.03 were
 discarded ( assume image pixel values in the range [0,1] ).
@@ -206,10 +208,15 @@ A poorly defined peak in the difference-of-Gaussian function will have a large p
 
 
 compute the sum of the eigenvalues from the trace of H and their product from the determinant:
-$$ Tr(H)  = D_{xx} + D_{yy}  = \lambda_1 + \lambda_2$$
-$$ Det(H) = D_{xx}D_{yy} - (D_{xy})^2 = \lambda_1 \lambda_2 $$
+
+$Tr(H)  = D_{xx} + D_{yy}  = \lambda_1 + \lambda_2$
+
+$Det(H) = D_{xx}D_{yy} - (D_{xy})^2 = \lambda_1 \lambda_2$
+
 then,
-$$ \frac{Tr(H)^2}{Det(H)} < \frac{(r + 1)^2}{r}$$
+
+$\frac{Tr(H)^2}{Det(H)} < \frac{(r + 1)^2}{r}$
+
 A value of r = 10, which eliminates
 keypoints that have a ratio between the principal curvatures greater than 10.
 
