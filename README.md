@@ -19,6 +19,18 @@ Following are the major stages of computation used to generate the set of image 
 - **4.Keypoint descriptor:** The local image gradients are measured at the selected scale in the region around each keypoint. These are transformed into a representation that allows for significant levels of local shape distortion and change in illumination and hence account for `misregisteration` and `local positional shift`.
 - **5.Matching:** The purpose of detecting and describing keypoints is to find matches (pairs of keypoints) between images that minimizes the Euclidean distance between descriptors.
 
+<p align="center">
+  <img src="images/readme_imgs/harris_gui.jpeg" width="400" height="300"/>
+</p>
+
+<p align="center">
+  <img src="images/readme_imgs/sift_gui.jpeg" width="500" height="300"/>
+</p>
+
+
+
+
+
 ## 1. Scale-space extrema detection
 To be able to extract extremum points we do the following steps:
 ### 1.1. Octaves
