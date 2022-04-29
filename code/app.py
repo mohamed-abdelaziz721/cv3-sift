@@ -73,7 +73,7 @@ class MainWindow(QMainWindow):
                     from sift import sift
                     sift(self.images[self.currImgIdx], self.images[self.currImgIdx - 1])
                 except TypeError:
-                    choice = QtWidgets.QMessageBox.warning(self, 'Message','This may take some minutes...')
+                    choice = QtWidgets.QMessageBox.warning(self, 'Message','This may take some minutes(unvectorized)...')
                     from template_matching_demo import sift
                     img = sift(self.images[self.currImgIdx], self.images[self.currImgIdx - 1])
                     showImage(self.ui.outputImage, img, size=(500, 250))
