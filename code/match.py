@@ -83,4 +83,12 @@ def visualize_matches(matches: list[tuple[Keypoint, Keypoint]],
         con = ConnectionPatch(xyA=p2, xyB=p1, coordsA="data", coordsB="data", axesA=ax2, axesB=ax1, color="red")
         ax2.add_artist(con)
 
-    plt.show()
+    # If we haven't already shown or saved the plot, then we need to
+    # draw the figure first...
+    fig.canvas.draw()
+
+    # Now we can save it to a numpy array.
+    img = np.frombuffer(fig.canvas.tostring_rgb(), dtype=np.uint8)
+    img = img.reshape(fig.canvas.get_width_height()[::-1] + (3,))
+    return img
+    # plt.show()
