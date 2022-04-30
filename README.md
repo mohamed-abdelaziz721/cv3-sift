@@ -49,7 +49,7 @@ This Gaussian scale-space  is a family of increasingly blurred images with sampl
 
 Convention adopted for the sampling grid of the digital scale-space v. The blur level is
 considered with respect to the sampling grid of the input image. The parameters are set to their default
-value, namely $\sigma_{min} = 0.8, n_{spo} = 5, n_{oct} = 8, \sigma_{in} = 0.5.$
+value, namely $ \ \sigma_{min} = 0.8, n_{spo} = 5, n_{oct} = 8, \sigma_{in} = 0.5. $
 
 
 ```python
