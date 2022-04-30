@@ -51,11 +51,12 @@ def sift(img1, img2):
     keypoints1 = detect_sift_features(img1)
     keypoints2 = detect_sift_features(img2)
     matches = match_sift_features(keypoints1, keypoints2)
-    visualize_matches(matches, img1, img2)
+    result = visualize_matches(matches, img1, img2)
     print(len(matches))
 
     print('len of keypoints 1: ', len(keypoints1))
     print('len of keypoints 2: ', len(keypoints2))
     print('len of matches: ', len(matches))
+    return result
 
 
