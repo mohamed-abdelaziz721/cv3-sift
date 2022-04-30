@@ -125,7 +125,7 @@ plt.show()
 
 ### 1.2. Diffrence of Gaussian (DOG)
 - `Diffrence of Gaussian`: Effiecient to compute edge features by simple image subtraction `(two subsequent imgs at diffrent sigma from the same octave)` which is a fast approximation to Normalized Laplacian of gaussian (NLOG) which require slow convolution computations.
-$ G(x, y, k\sigma) − G(x, y, \sigma) \approx (k − 1)\sigma^2\nabla^2G$
+$G(x, y, k\sigma) − G(x, y, \sigma) \approx (k − 1)\sigma^2\nabla^2G$
 
 
 <p align="center">
@@ -167,7 +167,7 @@ plt.show()
 
 
 ### 1.3. Local Extremum Detection
-- `Local Extremum Detection`: Finds extrema in a DOG octave achieved by subtracting a cell by all it's direct (including diagonal) neighbors, and confirming all differences have the same sign. This coud be visualized as searching for extremum in each 3d cube in each octave.
+- `Local Extremum Detection`: Finds extrema in a DOG octave achieved by subtracting a cell by all it's direct (including diagonal) neighbors, and confirming all differences have the same sign. This could be visualized as searching for extremum in each 3d cube in each octave.
 
 <p align="center">
   <img src="images/readme_imgs/max.png" width="300" height="200"/>
