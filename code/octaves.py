@@ -21,10 +21,8 @@ import const
 def progression_sigma(layer_idx: int) -> float:
     """ Calculates the Gaussian blur's standard deviation required
         to move from (layer_idx - 1) -> layer_idx in scale-space.
-        See AOS section 2.2. This ensures each octave covers a
-        doubling of the blurring or sigma, and that the generated
-        layer's sigmas obey the following formula:
-
+        This ensures each octave covers a doubling of the blurring
+        or sigma, and that the generated layer's sigmas obey the following formula:
         layer_sigma = (octave_idx / min_pixel_dist) * min_sigma * 2 ** (layer_idx / scales_per_octave)
 
     Args:
@@ -42,8 +40,8 @@ def progression_sigma(layer_idx: int) -> float:
 def absolute_sigma(octave_idx: int,
                    layer_idx: int) -> float:
     """ Calculates the Gaussian blur's standard deviation
-        associated with the blurring of a layer. See AOS section
-        2.2. While progression_sigma provides the relative sigma
+        associated with the blurring of a layer.
+        While progression_sigma provides the relative sigma
         required to move from one layer to the next, this function
         provides the layer's absolute sigma. In other words, the
         level of blurring required to move from the original image
@@ -65,7 +63,7 @@ def absolute_sigma(octave_idx: int,
 
 def build_gaussian_octaves(img: np.ndarray) -> List[np.ndarray]:
     """ Builds Gaussian octaves, consisting of an image repeatedly
-        convolved with a Gaussian kernel. See AOS section 2.2.
+        convolved with a Gaussian kernel. 
 
     Args:
         img: Image used to create the octaves.

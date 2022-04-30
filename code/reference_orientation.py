@@ -43,7 +43,6 @@ def smoothen_histogram(hist: np.array) -> np.array:
     """ Smoothens a histogram with an average filter.
         The filter as defined as multiple convolutions
         with a three-tap box filter [1, 1, 1] / 3.
-        See AOS section 4.1.B.
 
     Args:
         hist: A histogram containing gradient orientation counts.
@@ -110,9 +109,7 @@ def weighting_matrix(center_offset: np.array,
     """ Calculates a Gaussian weighting matrix.
         This matrix determines the weight that gradients
         in a keypoint's neighborhood have when contributing
-        to the keypoint's orientation histogram. See AOS section 4,
-        Lowe section 5.
-
+        to the keypoint's orientation histogram. 
     Args:
         center_offset: The keypoint's offset from the patch's center.
         patch_shape: The shape of the patch. The generated weighting
@@ -142,8 +139,8 @@ def find_histogram_peaks(hist: np.array) -> List[float]:
     """ Finds peaks in the gradient orientations histogram,
         and returns the corresponding orientations in radians.
         Peaks are the maximum bin and bins that lie within 0.80
-        of the mass of the maximum bin. See AOS section 4.1 and
-        Lowe section 5. When the modulo operator is used in this
+        of the mass of the maximum bin. 
+        When the modulo operator is used in this
         function, it is to  account for the fact that the first
         and last bin are neighbors, namely, the rotations by 0
         and 2pi radians.
@@ -197,7 +194,6 @@ def assign_reference_orientations(keypoint_coords: np.array,
         A keypoint coordinate may have multiple reference orientations.
         In that case, multiple Keypoint objects are created for that coordinate.
         Reference orientations are used to create rotation invariant descriptors.
-        See Lowe section 5, AOS section 4.1.
 
     Args:
         keypoint_coords: The keypoints' 3D coordinates.

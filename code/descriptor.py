@@ -50,7 +50,6 @@ def relative_patch_coordinates(center_offset: list,
         relative to the keypoint. Keypoints have an orientation and
         therefore introduce an oriented x and y axis. This is why
         the relative coordinates are the result of a rotation.
-        See Lowe section 5 and AOS section 4.2.
 
     Args:
         center_offset: The keypoint's offset from the patch's center.
@@ -106,9 +105,9 @@ def interpolate_2d_grid_contribution(magnitude_path: np.ndarray,
     """ Interpolates gradient contributions to surrounding histograms.
         In other words: Calculates to what extent gradients in a descriptor
         patch contribute to a histogram, based on the gradient's pixel's
-        y & x distance to that histogram's location. See AOS section 4.2
-        and figure 10 and Lowe section 6. This function performs the
-        interpolation for all histograms at once via broadcasting.
+        y & x distance to that histogram's location.
+        This function performs the interpolation for all histograms at
+        once via broadcasting.
 
     Args:
         magnitude_path: The gradient magnitudes in a descriptor patch, used to
@@ -180,8 +179,7 @@ def histogram_per_row(data: np.ndarray,
     """ Calculates histograms for each row of a 2D matrix.
         Has a similar signature to np.histogram(), except np.histogram() only
         supports 1D arrays. This function was created to speed up histogram
-        creation for all (16) histograms in the descriptor patch. Borrows from
-        https://stackoverflow.com/questions/44152436/calculate-histograms-along-axis
+        creation for all (16) histograms in the descriptor patch.
 
     Args:
         data: A 2 dimensional array. A histogram will be calculated for each row.
@@ -207,7 +205,6 @@ def histogram_per_row(data: np.ndarray,
 
 def normalize_sift_feature(hists: np.ndarray) -> np.ndarray:
     """ Normalizes a keypoint's descriptor histograms to a unit length vector.
-        See AOS section 4.2 and Lowe section 6.1
 
     Args:
         hists: A 1D array of a keypoint's descriptor histograms concatenated.
@@ -226,14 +223,13 @@ def assign_descriptor(keypoints: list[Keypoint],
     """ Assigns a descriptor to each keypoint.
         A descriptor is a collection of histograms that capture
         the distribution of gradients orientations in an oriented
-        keypoint's local neighborhood. See AOS section 4.2 and Lowe
-        section 6. Descriptors are created by taking a square
-        patch of gradients surrounding the keypoint, assigning
-        each gradient in the patch a coordinates relative to the
-        oriented keypoint, and accumulating the gradients into a set
-        of histograms. A gradient's contributions to a particular
-        histogram is determined by its distance from the histogram's
-        and keypoint's location.
+        keypoint's local neighborhood. 
+        Descriptors are created by taking a square patch of gradients
+        surrounding the keypoint, assigning each gradient in the patch 
+        a coordinates relative to the oriented keypoint, and accumulating
+        the gradients into a set of histograms.
+        A gradient's contributions to a particular histogram is determined
+        by its distance from the histogram's and keypoint's location.
 
     Args:
         keypoints: A list of keypoints that have been assigned an orientation.

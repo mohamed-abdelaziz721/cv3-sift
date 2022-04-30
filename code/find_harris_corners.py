@@ -1,12 +1,6 @@
-# -*- coding: utf-8 -*-
 """
-Aditya Intwala
-
 This is a script to demonstrate the implementation of Harris corner function to
 detect corners from the image.
-
-The script was provided to the students of ACM Winter School December 2019 held
-at IISER Pune, for introducing them on the topic of feature detection from images.
 
 """
 

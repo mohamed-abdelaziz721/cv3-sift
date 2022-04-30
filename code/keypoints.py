@@ -66,7 +66,6 @@ def pass_edge_test(second_deriv: np.ndarray) -> bool:
     """ Eliminates keypoints along edges for improved detection
         repeatability. Returns true when a keypoint passes edge
         test, i.e., when the keypoint does *not* lie on an edge.
-        For details see Lowe section 4.1 and AOS section 3.3.
 
     Args:
         second_deriv: Hessian of the keypoint.
@@ -89,8 +88,7 @@ def interpolate(extremum_coord: np.ndarray,
         by a Taylor expansion to fit a 3D quadratic function to the
         local sample. The interpolated extremum is where this function's
         derivative equals 0. This enables more precise sub-pixel keypoint
-        locations, which improves descriptor quality. For details,
-        see Lowe section 4 and AOS section 3.2.
+        locations, which improves descriptor quality.
 
     Args:
         extremum_coord: Non-interpolated coordinates of an extremum.
